@@ -1,0 +1,52 @@
+<nav class="bg-gray-800" *ngIf="isSession">
+  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+    <div class="relative flex items-center justify-between h-16">
+      <div class="absolute inset-y-0 left-0 flex items-center">
+        <button
+          class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
+          aria-label="Main menu" aria-expanded="false">
+          <img class="block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-on-dark.svg"
+            alt="Workflow logo">
+        </button>
+      </div>
+      <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="sm:ml-6">
+          <div class="flex">
+            <div class="ml-4 px-3 py-2 text-sm font-medium leading-5 text-gray-300">
+              <span class="block">
+                {{ name }}
+              </span>
+              <span class="hidden sm:block ">
+                {{ role }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="sm:ml-6">
+          <div class="flex">
+            <a class="ml-4 px-3 py-2 text-sm font-medium leading-5 text-gray-300">
+
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+        <button (click)="logout()"
+          class="p-1 border-2 border-transparent text-gray-400 rounded-full hover:text-white focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
+          aria-label="Notifications">
+          logout
+        </button>
+        <div class="ml-3 relative">
+          <div>
+            <button
+              class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-white transition duration-150 ease-in-out"
+              id="user-menu" aria-label="User menu" aria-haspopup="true">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -28,6 +28,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/material-icons/css/material-icons.min.css",
+              "node_modules/tailwindcss/dist/tailwind.min.css",
               "src/styles.scss"
             ],
             "scripts": []

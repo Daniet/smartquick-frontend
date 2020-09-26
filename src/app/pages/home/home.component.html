@@ -1,0 +1,49 @@
+<table class="table-auto w-full">
+  <thead>
+    <tr>
+      <th class="text-left">Atleta</th>
+      <th>Edad</th>
+      <th class="text-left">País</th>
+      <th>Año</th>
+      <th>Fecha</th>
+      <th class="text-left">Deporte</th>
+      <th class="text-right">Oro</th>
+      <th class="text-right">Plata</th>
+      <th class="text-right">Bronce</th>
+      <th class="text-right">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let medal of medals">
+      <td>{{ medal['athlete'] }}</td>
+      <td class="text-center">{{ medal['age'] }}</td>
+      <td class="text-left">{{ medal['country'] }}</td>
+      <td class="text-center">{{ medal['year'] }}</td>
+      <td class="text-center">{{ medal['date'] }}</td>
+      <td class="text-left">{{ medal['sport'] }}</td>
+      <td class="text-right">{{ medal['gold'] }}</td>
+      <td class="text-right">{{ medal['silver'] }}</td>
+      <td class="text-right">{{ medal['bronze'] }}</td>
+      <td class="text-right">{{ medal['total'] }}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th class="text-right" colspan="6">
+        Total:
+      </th>
+      <th class="text-right">{{ totals['gold'] }}</th>
+      <th class="text-right">{{ totals['silver'] }}</th>
+      <th class="text-right">{{ totals['bronze'] }}</th>
+      <th class="text-right">{{ totals['total'] }}</th>
+    </tr>
+  </tfoot>
+</table>
+<div>
+  <div *ngFor="let medalCategory of medalsCategories | keyvalue">
+    {{ medalCategory.key }} ...
+    <div *ngFor="let category of medalCategory['value'] | keyvalue">
+      > {{ category.key }} = {{ category['value'] }}
+    </div>
+  </div>
+</div>
