@@ -42,7 +42,6 @@ export class ApiService {
 
   getSession() {
     let role = sessionStorage.getItem('role')
-    console.log(this.roles[role])
     this.session.next(this.roles[role])
   }
 

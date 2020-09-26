@@ -13,15 +13,13 @@ export class HomeComponent implements OnInit {
   tableMedals = []
 
   totals = { gold: 0, silver: 0, bronze: 0, total: 0 }
-  // medalsCategories = {}
   medalsCategories = { gold: {}, silver: {}, bronze: {} }
-  listCategoriesMedals = ['gold', 'silver', 'bronze']
+  listCategoriesMedals = ['bronze', 'silver', 'gold']
 
   constructor(private _apiService: ApiService) { }
 
   ngOnInit(): void {
     this._apiService.getData().then(r => {
-      // this.medals = r
       for (let x in r) {
         this.totals['gold'] += r[x]['gold']
         this.totals['silver'] += r[x]['silver']
@@ -30,11 +28,9 @@ export class HomeComponent implements OnInit {
         this.setMedalsSport('gold', r[x]['sport'], r[x]['gold'])
         this.setMedalsSport('silver', r[x]['sport'], r[x]['silver'])
         this.setMedalsSport('bronze', r[x]['sport'], r[x]['bronze'])
-        // this.setMedalsSport(r[x]['sport'], r[x]['gold'], r[x]['silver'], r[x]['bronze'])
 
       }
       // for (let x = 0; x < 25; x++) tableMedals[x] = this.medals[x]
-      console.log(this.medalsCategories)
     })
   }
 
@@ -44,18 +40,7 @@ export class HomeComponent implements OnInit {
     } else this.medalsCategories[medal][sport] = cant
   }
 
-  log(bam) {
-    console.log(bam)
+  log(value) {
+    console.log(value)
   }
-
-  // setMedalsSport(sport, cantGold, cantSiver, cantBronze) {
-  //   if (Object.keys(this.medalsCategories).indexOf(sport) < 0) {
-  //     this.medalsCategories[sport] = {cantGold, cantSiver, cantBronze}
-  //   } else {
-  //     this.medalsCategories[sport]['cantGold'] += cantGold
-  //     this.medalsCategories[sport]['cantSiver'] += cantSiver
-  //     this.medalsCategories[sport]['cantBronze'] += cantBronze
-  //   }
-  // }
-
 }
