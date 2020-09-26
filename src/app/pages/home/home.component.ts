@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this._apiService.getData().then(r => {
+      this.medals = r
       for (let x in r) {
         this.totals['gold'] += r[x]['gold']
         this.totals['silver'] += r[x]['silver']
@@ -38,9 +39,5 @@ export class HomeComponent implements OnInit {
     if (Object.keys(this.medalsCategories[medal]).indexOf(sport) >= 0) {
       this.medalsCategories[medal][sport] += cant
     } else this.medalsCategories[medal][sport] = cant
-  }
-
-  log(value) {
-    console.log(value)
   }
 }
